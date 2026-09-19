@@ -15,7 +15,7 @@ fn main() {
         return;
     }
 
-    match fs::read_to_string(path) {
+    match fs::read(path) {
         Ok(_) => println!("success"),
         Err(_) => println!("failure"),
     }
