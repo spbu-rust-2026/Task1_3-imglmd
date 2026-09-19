@@ -8,17 +8,15 @@ fn main() {
         return;
     }
 
-    if path.trim().is_empty() {
-        print!("failure");
+    let path = path.trim();
+
+    if path.is_empty() {
+        println!("failure");
         return;
     }
-    match fs::read_to_string(path) {
-        Ok(content) => content,
-        Err(_) => {
-            print!("failure");
-            return;
-        }
-    };
 
-    print!("success");
+    match fs::read_to_string(path) {
+        Ok(_) => println!("success"),
+        Err(_) => println!("failure"),
+    }
 }
